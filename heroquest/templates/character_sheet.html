@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <title>Full de Personatge</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #2a2a2a;
+            text-align: center;
+            font-family: 'IM Fell English', serif;
+        }
+        .card-container {
+            background-image: url("{{ url_for('static', filename='img/background.jpg') }}");
+            background-size: cover;
+            background-position: center;
+            width: 350px;
+            height: 500px;
+            margin: auto;
+            padding: 20px;
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+        }
+        /* 🔹 Estilo para el banner */
+        .banner {
+            background-image: url("{{ url_for('static', filename='img/banner.png') }}");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 100%;
+            height: 60px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            line-height: 60px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #8B0000;
+            text-shadow: 2px 2px 4px black;
+        }
+        /* 🔹 Imagen del monstruo */
+        .monster-img {
+            width: 100%;
+            max-width: 180px;
+            display: block;
+            margin: 70px auto 10px;
+        }
+        /* 🔹 Tabla de estadísticas con bordes negros */
+        .stats-table {
+            position: absolute;
+            bottom: 20px;
+            width: 90%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            border: 3px solid black;
+        }
+        .stats-table th, .stats-table td {
+            padding: 5px;
+            text-align: center;
+            border: 1px solid black;
+            background-color: rgba(50, 50, 50, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <h1 class="text-center my-4 text-light">Full de Personatge</h1>
+    
+    <div class="card-container">
+        <!-- 🔹 Banner centrado -->
+        <div class="banner">{{ data.tipus }}</div>
+        
+        <!-- 🔹 Imagen del monstruo -->
+        <img src="{{ url_for('static', filename='img/' + data.tipus.lower() + '.png') }}" 
+             alt="{{ data.tipus }}" class="monster-img">
+        
+        <!-- 🔹 Tabla de estadísticas -->
+        <table class="stats-table">
+            <tr>
+                <th>Atac</th>
+                <th>Defensa</th>
+                <th>Moviment</th>
+            </tr>
+            <tr>
+                <td>{{ data.atac }}</td>
+                <td>{{ data.defensa }}</td>
+                <td>{{ data.moviment }}</td>
+            </tr>
+            <tr>
+                <th>Cos</th>
+                <th>Ment</th>
+                <th>Habilitats</th>
+            </tr>
+            <tr>
+                <td>{{ data.cos }}</td>
+                <td>{{ data.ment }}</td>
+                <td>{{ data.habilitats }}</td>
+            </tr>
+        </table>
+    </div>
+
+    <a href="/" class="btn btn-danger mt-3">Crear un altre monstre</a>
+</body>
+</html>

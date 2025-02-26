@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulari de Monstre</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #1e1e1e;
+            color: white;
+        }
+        .container {
+            max-width: 600px;
+            background-color: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
+            margin-top: 50px;
+        }
+        .form-control, .form-select {
+            background-color: #3a3a3a;
+            color: white;
+            border: 1px solid #555;
+        }
+        .btn-primary {
+            background-color: #ff6600;
+            border-color: #ff6600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Crear un Monstre</h1>
+        <form method="POST">
+            <label class="form-label">Tipus de Monstre:</label>
+            <select name="tipus" class="form-select" required>
+                <option value="Orc">Orc</option>
+                <option value="Goblin">Goblin</option>
+                <option value="Ogre">Ogre</option>
+                <option value="Troll">Troll</option>
+                <option value="Ghoul">Ghoul</option>
+                <option value="Skeleton">Skeleton</option>
+                <option value="Mummy">Mummy</option>
+                <option value="Death Knight">Death Knight</option>
+            </select>
+
+            <label class="form-label">Nom:</label>
+            <input type="text" name="nom" class="form-control" required>
+
+            <label class="form-label">Atac (1-6):</label>
+            <input type="number" name="atac" min="1" max="6" class="form-control" required>
+
+            <label class="form-label">Defensa (1-5):</label>
+            <input type="number" name="defensa" min="1" max="5" class="form-control" required>
+
+            <label class="form-label">Moviment (3-10):</label>
+            <input type="number" name="moviment" min="3" max="10" class="form-control" required>
+
+            <label class="form-label">Cos (1-10):</label>
+            <input type="number" name="cos" min="1" max="10" class="form-control" required>
+
+            <label class="form-label">Ment (1-5):</label>
+            <input type="number" name="ment" min="1" max="5" class="form-control" required>
+
+            <label class="form-label">Habilitats especials:</label>
+            <textarea name="habilitats" class="form-control"></textarea>
+
+            <button type="submit" class="btn btn-primary mt-3 w-100">Enviar</button>
+        </form>
+    </div>
+</body>
+</html>
